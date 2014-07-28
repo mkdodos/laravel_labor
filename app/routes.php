@@ -57,6 +57,8 @@ Route::get('cash/test', function()
 });
 
 Route::resource('cash', 'CashController');
+Route::resource('boss', 'BossController');
+Route::resource('labor', 'LaborController');
 
 
 
