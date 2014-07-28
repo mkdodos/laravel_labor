@@ -16,7 +16,8 @@ class CreateBossesTable extends Migration {
 		{
 		    $table->increments('id');
 		    $table->string('name');//姓名
-		    $table->string('boss_id');//身份證字號
+		    // $table->string('boss_id');//身份證字號
+		    $table->string('id_num');//身份證字號
 		    $table->string('tel', 100);//電話
 		    $table->timestamps();//Adds created_at and updated_at columns
 		});

@@ -24,55 +24,14 @@
 <div class="container">
 
 <div class="col-md-6">
-{{ Form::model($cash,array('route' => array('cash.update', $cash->id),'method' => 'PUT')) }}
-  <div class="form-group">
-    {{ Form::label('spend_date', '日期') }}
-    {{ Form::text('spend_date',null,
-        array(
-        'id'=>'spend_date_editor',
-        'data-date-format'=>'yyyy-mm-dd',
-        'class' => 'form-control'
-    )) }}
-  </div>
-  <div class="form-group">
-    {{ Form::label('item', '項目') }}
-    {{ Form::text('item',null,
-        array(
-        'class' => 'form-control'
-    )) }}
-  </div>
-  <div class="form-group">
-    {{ Form::label('note', '摘要') }}
-    {{ Form::text('note',null,
-        array(
-        'class' => 'form-control'
-    )) }}
-  </div>
-  <div class="form-group">
-    {{ Form::label('amt', '金額') }}
-    {{ Form::text('amt',null,
-        array(
-        'class' => 'form-control'
-    )) }}
-  </div>
-  <div class="form-group">
-    {{ Form::label('tax', '稅額') }}
-    {{ Form::text('tax',null,
-        array(
-        'class' => 'form-control'
-    )) }}
-  </div>
+{{ Form::model($labor,array('route' => array('labor.update', $labor->id),'method' => 'PUT')) }}
+
+@include('labor.includes.editform')
   {{ Form::submit('更新') }}
-
-
-
-
-
-
 {{ Form::close() }}
 
 
-{{ Form::open(array('url' => 'cash/' . $cash->id,
+{{ Form::open(array('url' => 'labor/' . $labor->id,
 'data-confirm' => '確定刪除嗎?',
 'class' => 'pull-right')) }}
   {{ Form::hidden('_method', 'DELETE') }}

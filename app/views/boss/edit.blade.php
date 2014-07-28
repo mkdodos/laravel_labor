@@ -27,28 +27,7 @@
 {{ Form::model($boss,array('route' => array('boss.update', $boss->id),'method' => 'PUT')) }}
 
 
-<div class="form-group">
-  {{ Form::label('name', '姓名') }}
-  {{ Form::text('name',null,
-      array(
-      'class' => 'form-control'
-  )) }}
-</div>
-<div class="form-group">
-  {{ Form::label('boss_id', '身份證') }}
-  {{ Form::text('boss_id',null,
-      array(
-      'class' => 'form-control'
-  )) }}
-</div>
-<div class="form-group">
-  {{ Form::label('tel', '電話') }}
-  {{ Form::text('tel',null,
-      array(
-      'class' => 'form-control'
-  )) }}
-</div>
-
+@include('boss.includes.editform')
 
   {{ Form::submit('更新') }}
 

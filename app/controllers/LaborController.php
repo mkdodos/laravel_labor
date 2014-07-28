@@ -9,7 +9,8 @@ class LaborController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$data=Labor::all();
+		return View::make('labor.index')->with('data',$data);
 	}
 
 
@@ -20,7 +21,7 @@ class LaborController extends \BaseController {
 	 */
 	public function create()
 	{
-
+		return View::make('labor.create');
 	}
 
 
@@ -31,7 +32,13 @@ class LaborController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$row=new Labor();
+		$row->name=Input::get('name');
+		$row->passport=Input::get('passport');
+		$row->nation=Input::get('nation');
+		$row->tel=Input::get('tel');
+		$row->save();
+		return Redirect::to('labor');
 	}
 
 
@@ -55,7 +62,8 @@ class LaborController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$labor=Labor::find($id);
+		return View::make('labor.edit')->with('labor',$labor);
 	}
 
 
@@ -67,7 +75,13 @@ class LaborController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$row=Labor::find($id);
+		$row->name=Input::get('name');
+		$row->passport=Input::get('passport');
+		$row->nation=Input::get('nation');
+		$row->tel=Input::get('tel');
+		$row->save();
+		return Redirect::to('labor');
 	}
 
 
@@ -79,7 +93,9 @@ class LaborController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$row=Labor::find($id);
+		$row->delete();
+		return Redirect::to('labor');
 	}
 
 

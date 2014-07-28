@@ -34,7 +34,7 @@ class BossController extends \BaseController {
 	{
 		$boss=new Boss();
 		$boss->name=Input::get('name');
-		$boss->boss_id=Input::get('boss_id');
+		$boss->id_num=Input::get('id_num');
 		$boss->tel=Input::get('tel');
 		$boss->save();
 		return Redirect::to('boss');
@@ -76,7 +76,7 @@ class BossController extends \BaseController {
 	{
 		$boss=Boss::find($id);
 		$boss->name=Input::get('name');
-		$boss->boss_id=Input::get('boss_id');
+		$boss->id_num=Input::get('id_num');
 		$boss->tel=Input::get('tel');
 		$boss->save();
 		return Redirect::to('boss');

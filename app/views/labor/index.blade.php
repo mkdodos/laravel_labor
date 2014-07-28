@@ -16,27 +16,24 @@
 
 
 <div class="container">
-  <a href="{{URL::to('cash/create')}}" class="btn btn-primary">新增</a>
-<a href="{{URL::to('cash/test')}}" class="btn btn-success pull-right">輸出excel</a>
+  <a href="{{URL::to('labor/create')}}" class="btn btn-primary">新增</a>
 <table class="table">
-  <tr><th>日期</th><th>項目</th><th>摘要</th>
-    <th>金額</th>
-    <th>稅額</th>
-    <th>功能</th></tr>
+  <tr>
+    <th>姓名</th>
+    <th>謢照號碼</th>
+    <th>國籍</th>
+    <th>電話</th>
+
+  </tr>
   @foreach($data as $d)
   <tr>
-    <td>{{$d->spend_date}}</td>
-    <td>{{$d->item}}</td>
-    <td>{{$d->note}}</td>
-    <td>{{$d->amt}}</td>
-    <td>{{$d->tax}}</td>
+    <td>{{$d->name}}</td>
+    <td>{{$d->passport}}</td>
+    <td>{{$d->nation}}</td>
+    <td>{{$d->tel}}</td>
+
     <td>
-
-      <a href="{{URL::to('cash/'.$d->id.'/edit')}}" class="">修改</a>
-
-
-
-
+      <a href="{{URL::to('labor/'.$d->id.'/edit')}}" class="">修改</a>
     </td>
   </tr>
   @endforeach

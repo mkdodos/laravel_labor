@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('index');
 });
 
 
@@ -55,6 +55,21 @@ Route::get('cash/test', function()
 
 
 });
+
+
+
+//有指定使用resource時,額外路由須放在resource controller之前才有作用
+Route::get('boss/excel', function()
+{
+  $data=Boss::all();
+  Excel::create('雇主名單', function($excel)  use($data) {
+    $excel->sheet('Sheetname', function($sheet) use($data) {
+      $sheet->fromArray($data, null, 'A1', false, true);
+    });
+  })->download('xls');
+  return Redirect::to('boss');
+});
+
 
 Route::resource('cash', 'CashController');
 Route::resource('boss', 'BossController');
