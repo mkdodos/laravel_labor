@@ -9,6 +9,7 @@ class CashController extends \BaseController {
 	 */
 	public function index()
 	{
+		// return str_plural('labor');//labors,bosses
 		$data=Cash::all();
 		return View::make('cash.index')->with('data',$data);
 	}
