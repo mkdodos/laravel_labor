@@ -17,7 +17,8 @@
 
 <div class="container">
   <a href="{{URL::to('cash/create')}}" class="btn btn-primary">新增</a>
-<a href="{{URL::to('cash/test')}}" class="btn btn-success pull-right">輸出excel</a>
+<a href="{{URL::to('cash/export')}}" class="btn btn-default pull-right">輸出excel</a>
+<a href="{{URL::to('cash/import')}}" class="btn btn-success pull-right">輸入excel</a>
 <table class="table">
   <tr><th>日期</th><th>項目</th><th>摘要</th>
     <th>金額</th>

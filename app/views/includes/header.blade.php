@@ -17,6 +17,8 @@
         <li><a href="cash">零用金</a></li>
         <li><a href="boss">雇主</a></li>
         <li><a href="labor">外勞</a></li>
+        <li><a href="elder">受照顧者</a></li>
+        <li><a href="profile">需登入才可看</a></li>
       </ul>
 
 

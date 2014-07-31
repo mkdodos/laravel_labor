@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		$this->call('CashAppSeeder');
+		// $this->call('ElderTableSeeder');
 		$this->command->info('Bear app seeds finished.');
 
 	}
@@ -36,3 +37,20 @@ class CashAppSeeder extends Seeder {
 
 	}
 }
+
+// class ElderTableSeeder extends Seeder {
+// 	public function run() {
+// 		DB::table('elders')->delete();
+// 		Elder::create(array(
+// 			'birth' => '2014-05-16',
+// 			'name' => '老人一',
+// 			'address' => '台南市永康'
+// 		));
+// 		Elder::create(array(
+// 			'birth' => '2014-08-16',
+// 			'name' => '老人二',
+// 			'address' => '台南市永康大小'
+// 		));
+
+// 	}
+// }

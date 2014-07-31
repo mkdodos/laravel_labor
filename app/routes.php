@@ -13,12 +13,83 @@
 
 Route::get('/', function()
 {
+
 	return View::make('index');
 });
 
 
+// Route::get('profile', array('before' => 'auth.basic', function()
+// {
+//     //跳出一個瀏覽器的登入視窗
+//   //輸入帳號密碼,會和users資料表做驗證
+//   return "abc".'<a href='.URL::to('logout').'>Logout</a>';
+// }));
+
+
+
+
+Route::get('logout',function(){
+Auth::logout(); // log the user out of our application
+return Redirect::to('profile'); // redirect the user to the login screen
+});
+
+Route::get('profile', array('before' => 'auth', function()
+{
+  // 'before' => 'auth' 會轉到login
+// return "Abc";
+return '<a href='. URL::to('logout') .'>Logout</a>';
+
+}));
+
+//顯示登入表單
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+//驗證登入資料
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+
 //放置在resource controller之前
-Route::get('cash/test', function()
+Route::get('cash/import', function(){
+  //載入檔案file.xls,指定Sheet1工作表
+  //也可不指定工作表,直接載入所有工作表
+
+  $filename= storage_path()."\\exports\abc.xls";
+
+
+  //Excel::load('file.xls', function($reader) {
+  Excel::selectSheets('Sheetname')->load($filename, function($reader) {
+    // Getting all results
+       $results = $reader->get();
+    // $results = $reader->all();
+
+
+       $reader->get(array('firstname', 'lastname'));
+       // echo $reader->first();//取得第一列資料
+       // $reader->dump();
+
+       // Loop through all sheets
+    //指定欄位
+       // $reader->get(array('a'))->each(function($sheet) {
+       //限制筆數
+      // $reader->limit(1)->each(function($sheet) {
+       //限制筆數,指定欄位
+        // $reader->limit(4)->get(array('id','spend_date'))->each(function($sheet) {
+       $reader->each(function($sheet) {
+           // Loop through all rows
+           $sheet->each(function($row) {
+            // dd($row->a);
+              echo $row;
+           });
+
+       });
+
+
+  });
+});
+
+
+//放置在resource controller之前
+Route::get('cash/export', function()
 {
 
 
@@ -74,7 +145,10 @@ Route::get('boss/excel', function()
 Route::resource('cash', 'CashController');
 Route::resource('boss', 'BossController');
 Route::resource('labor', 'LaborController');
+Route::resource('elder', 'ElderController');
 
-
+Route::get('/',function(){
+  return str_plural("elder");
+});
 
 

@@ -11,24 +11,24 @@
 </head>
 
 <div class="container">
-  <a href="{{URL::to('labor/create')}}" class="btn btn-primary">新增</a>
+  <a href="{{URL::to('elder/create')}}" class="btn btn-primary">新增</a>
 <table class="table">
   <tr>
     <th>姓名</th>
-    <th>謢照號碼</th>
-    <th>國籍</th>
-    <th>電話</th>
+    <th>身份證號碼</th>
+    <th>生日</th>
+    <th>地址</th>
 
   </tr>
   @foreach($data as $d)
   <tr>
     <td>{{$d->name}}</td>
-    <td>{{$d->passport}}</td>
-    <td>{{$d->nation}}</td>
-    <td>{{$d->tel}}</td>
+    <td>{{$d->id_num}}</td>
+    <td>{{$d->birth}}</td>
+    <td>{{$d->address}}</td>
 
     <td>
-      <a href="{{URL::to('labor/'.$d->id.'/edit')}}" class="">修改</a>
+      <a href="{{URL::to('elder/'.$d->id.'/edit')}}" class="">修改</a>
     </td>
   </tr>
   @endforeach
