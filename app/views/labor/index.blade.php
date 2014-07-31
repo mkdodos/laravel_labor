@@ -28,6 +28,10 @@
     <td>{{$d->tel}}</td>
 
     <td>
+      <a href="{{URL::to('labors_elders/'.$d->id)}}" class="">照顧誰</a>
+    </td>
+
+    <td>
       <a href="{{URL::to('labor/'.$d->id.'/edit')}}" class="">修改</a>
     </td>
   </tr>

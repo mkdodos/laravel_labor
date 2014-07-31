@@ -147,8 +147,21 @@ Route::resource('boss', 'BossController');
 Route::resource('labor', 'LaborController');
 Route::resource('elder', 'ElderController');
 
-Route::get('/',function(){
-  return str_plural("elder");
+
+
+Route::get('labors_elders/{id}',function($id){
+  $cerms = Labor::where('id', '=', $id)->first();
+
+  foreach ($cerms->elders as $picnic)
+    echo $picnic->name;
+});
+
+Route::get('elders_labors/{id}',function($id){
+  $grandCanyon = Elder::where('id', '=', $id)->first();
+
+   foreach ($grandCanyon->labors as $bear)
+     echo $bear->name;
+
 });
 
 

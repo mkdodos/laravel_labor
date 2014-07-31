@@ -28,6 +28,10 @@
     <td>{{$d->address}}</td>
 
     <td>
+      <a href="{{URL::to('elders_labors/'.$d->id)}}" class="">被誰照顧</a>
+    </td>
+
+    <td>
       <a href="{{URL::to('elder/'.$d->id.'/edit')}}" class="">修改</a>
     </td>
   </tr>
